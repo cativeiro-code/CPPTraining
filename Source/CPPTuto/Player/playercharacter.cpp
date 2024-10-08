@@ -54,6 +54,16 @@ void Aplayercharacter::look(const FInputActionValue& Value)
 	}
 }
 
+void Aplayercharacter::attack(const FInputActionValue& VaLue)
+{
+	//call attack animation
+}
+
+void Aplayercharacter::linetracedamage()
+{
+	//deal damage
+}
+
 // Called when the game starts or when spawned
 void Aplayercharacter::BeginPlay()
 {
@@ -87,6 +97,7 @@ void Aplayercharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &Aplayercharacter::move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &Aplayercharacter::look);
+		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this, Aplayercharacter::attack);
 	}
 	
 

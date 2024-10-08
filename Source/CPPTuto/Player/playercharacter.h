@@ -29,12 +29,23 @@ class CPPTUTO_API Aplayercharacter : public ACharacter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* AttackAction;
+
+
 public:
 	// Sets default values for this character's properties
 	Aplayercharacter();
 protected:
 	void move(const	FInputActionValue& Value);
 	void look(const	FInputActionValue& Value);
+	void attack(const FInputActionValue& VaLue);
+
+	int damage;
+
+	void linetracedamage();
+
 
 protected:
 	// Called when the game starts or when spawned
@@ -49,6 +60,7 @@ public:
 
 protected:
 	
+
 
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* camera;
